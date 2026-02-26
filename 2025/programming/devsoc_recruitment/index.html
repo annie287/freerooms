@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Freerooms</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: verdana;
+      background: #f5f6f8;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 32px;
+      background: white;
+      border-bottom: 1px solid #eee;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      font-size: 20px;
+      color: #f26c21;
+    }
+
+    .logo img {
+      width: 28px;
+      margin-right: 8px;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 20px;
+      color: #f26c21;
+      font-weight: 600;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 32px;
+    }
+
+    .search {
+      flex: 1;
+      margin: 0 20px;
+    }
+
+    .search input {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    .button {
+      border: 2px solid #f26c21;
+      color: #f26c21;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      background: white;
+      cursor: pointer;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      padding: 0 32px 40px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      background: white;
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .availability {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: white;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .building-name {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: #f26c21;
+      color: white;
+      padding: 10px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="navbar">
+    <div class="logo">
+      <img id="doorLogo" src="assets/freeroomsDoorClosed.png" style="cursor:pointer;" />
+      Freerooms
+    </div>
+
+    <div class="nav-actions">
+      <div>Search</div>
+      <div>Map</div>
+      <div>Grid View</div>
+      <div>Dark Mode</div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button class="button">Filter</button>
+    <div class="search">
+      <input type="text" placeholder="Search for a building..." />
+    </div>
+    <button class="button">Sort</button>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <img src="assets/agsm.webp" />
+      <div class="availability">9 rooms available</div>
+      <div class="building-name">AGSM</div>
+    </div>
+
+    <div class="card">
+      <img src="assets/ainsworth.webp" />
+      <div class="availability">16 rooms available</div>
+      <div class="building-name">Ainsworth Building</div>
+    </div>
+
+    <div class="card">
+      <img src="assets/anitab.webp" />
+      <div class="availability">44 rooms available</div>
+      <div class="building-name">Anita B Lawrence Centre</div>
+    </div>
+
+    <div class="card">
+      <img src="assets/biologicalScience.webp" />
+      <div class="availability">6 rooms available</div>
+      <div class="building-name">Biological Sciences</div>
+    </div>
+
+    <div class="card">
+      <img src="assets/biologicalScienceWest.webp" />
+      <div class="availability">8 rooms available</div>
+      <div class="building-name">Biological Sciences (West)</div>
+    </div>
+
+    <div class="card">
+      <img src="assets/blockhouse.webp" />
+      <div class="availability">9 rooms available</div>
+      <div class="building-name">Block House </div>
+    </div>
+
+    <div class="card">
+      <img src="assets/businessSchool.webp" />
+      <div class="availability">10 rooms available</div>
+      <div class="building-name">Business School </div>
+    </div>
+
+    <div class="card">
+      <img src="assets/civilBuilding.webp" />
+      <div class="availability">11 rooms available</div>
+      <div class="building-name">Civil Building </div>
+    </div>
+
+    <div class="card">
+      <img src="assets/colombo.webp" />
+      <div class="availability">0 rooms available</div>
+      <div class="building-name">Colombo </div>
+    </div>
+
+    <div class="card">
+      <img src="assets/cseBuilding.webp" />
+      <div class="availability">99 rooms available</div>
+      <div class="building-name">CSE Building </div>
+    </div>
+
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const logo = document.getElementById("doorLogo");
+
+      if (!logo) {
+        console.log("Logo not found");
+        return;
+      }
+
+      let isOpen = false;
+
+      logo.addEventListener("click", function () {
+        console.log("clicked");
+
+        if (isOpen) {
+          logo.src = "assets/freeroomsDoorClosed.png";
+        } else {
+          logo.src = "assets/freeRoomsLogo.png";
+        }
+
+        isOpen = !isOpen;
+      });
+
+    });
+  </script>
+
+</body>
+
+</html>
